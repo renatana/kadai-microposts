@@ -11,23 +11,15 @@
             </div>
             <div>
                 <p>{!! nl2br(e($micropost->content)) !!}</p>
+                @include('user_favorite.favorite_button' , ['microposts' => $micropost])
+                
             </div>
-        
-                <div style="display:inline-flex">
-                 @if (Auth::id() == $micropost->user_id)
-                    {!! Form::open(['route' => ['user.favorite', $micropost->id], 'method' => 'post']) !!}
-                        {!! Form::submit('Favorite', ['class' => 'btn btn-default btn-xs']) !!}
-                    {!! Form::close() !!}
-                @endif
-                    
+            <div>
                 @if (Auth::id() == $micropost->user_id)
                     {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
                 @endif
-        
-            
-               
             </div>
         </div>
     </li>

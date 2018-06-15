@@ -20,9 +20,8 @@ class CreateUserFavoriteTable extends Migration
             $table->timestamps();
             
              $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('favorite_id')->references('id')->on('users')->onDelete('cascade');
+             $table->foreign('favorite_id')->references('id')->on('microposts')->onDelete('cascade');
             
-             $table->unique(['user_id', 'favorite_id']);
         });
     }
 

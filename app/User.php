@@ -124,10 +124,9 @@ class User extends Authenticatable
     // confirming if already favoriting
     $exist = $this->is_favoriting($microId);
     // confirming that it is not you
-    $its_me = $this->id == $microId;
 
 
-    if ($exist && !$its_me) {
+    if ($exist) {
         // stop favoriting if favoriting
         $this->favoritings()->detach($microId);
         return true;

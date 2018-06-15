@@ -31,11 +31,12 @@
                       </div>
                   {!! Form::close() !!}
             @endif
-            
+            <ul>
             @if (count($microposts) > 0)
                 @include('microposts.microposts', ['microposts' => $microposts])
                 
             @endif
+            </ul>
         </div>
     </div>
 @endsection
