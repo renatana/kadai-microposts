@@ -4,7 +4,7 @@
             {!! Form::submit('Unfavorite', ['class' => "btn btn-danger btn-xs"]) !!}
         {!! Form::close() !!}
     @else
-        {!! Form::open(['route' => ['users.favorite', $microposts->id],  'method' => 'get']) !!}
+        {!! Form::open(['route' => ['user.favorite', $microposts->id]]) !!}
             {!! Form::submit('Favorite', ['class' => "btn btn-primary btn-xs"]) !!}
         {!! Form::close() !!}
     @endif
